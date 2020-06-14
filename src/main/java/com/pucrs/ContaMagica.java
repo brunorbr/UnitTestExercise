@@ -36,16 +36,16 @@ public class ContaMagica {
 
     public void mudaCategoria(double saldo){
         if(categoria == SILVER){
-            if(saldo >= 5000)
+            if(saldo >= 50000)
                 categoria = GOLD;
         }
-        if (categoria == GOLD){
+        else if (categoria == GOLD){
             if(saldo < 25000)
                 categoria = SILVER;
-            if(saldo <= 200000)
+            else if(saldo >= 200000)
                 categoria = PLATINUM;
         }
-        if(categoria == PLATINUM){
+        else if(categoria == PLATINUM){
             if(saldo <= 100000)
                 categoria = GOLD;
         }
@@ -59,7 +59,16 @@ public class ContaMagica {
             mudaCategoria(saldo);
     }
 
-
-
-
+    public String getCategory(){
+        switch (categoria){
+            case SILVER:
+                return "SILVER";
+            case GOLD:
+                return "GOLD";
+            case PLATINUM:
+                return "PLATINUM";
+            default:
+                return "CATEGORIA INVALIDA";
+        }
+    }
 }
