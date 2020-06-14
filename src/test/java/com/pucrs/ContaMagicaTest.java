@@ -95,4 +95,39 @@ public class ContaMagicaTest
         Assertions.assertEquals(181300.00, testAccount.getSaldo());
         Assertions.assertEquals("GOLD", testAccount.getCategory());
     }
+
+    @Test
+    public void CategoryPlatinum_take30k() throws INVALID_OPER_EXCEPTION{
+        testAccount.deposito(50000);
+        testAccount.deposito(150000);
+        testAccount.retirada(30000);
+        Assertions.assertEquals(171500.00, testAccount.getSaldo());
+        Assertions.assertEquals("PLATINUM", testAccount.getCategory());
+    }
+
+    @Test
+    public void CategoryPlatinum_take190k() throws INVALID_OPER_EXCEPTION{
+        testAccount.deposito(80000);
+        testAccount.deposito(200000);
+        testAccount.retirada(192000);
+        Assertions.assertEquals(90000.00, testAccount.getSaldo());
+        Assertions.assertEquals("GOLD", testAccount.getCategory());
+    }
+
+    @Test
+    public void CategoryPlatinum_take279999() throws INVALID_OPER_EXCEPTION{
+        testAccount.deposito(80000);
+        testAccount.deposito(200000);
+        testAccount.retirada(281999);
+        Assertions.assertEquals(1.00, testAccount.getSaldo());
+        Assertions.assertEquals("GOLD", testAccount.getCategory());
+    }
+
+    @Test
+    public void CategoryPlatinum_10000kDeposit()throws INVALID_OPER_EXCEPTION{
+        testAccount.deposito(80000);
+        testAccount.deposito(200000);
+        testAccount.deposito(100000);
+        Assertions.assertEquals(384500, testAccount.getSaldo());
+    }
 }

@@ -93,7 +93,7 @@ Os testes serão realizados considerando as alterações entre categorias e os a
 ---
 * Dado que o cliente tem categoria *PLATINUM*
 * E o saldo de 280000
-* Quando o cliente retirar 27999
+* Quando o cliente retirar 279999
 * Então a categoria deve ser alterada para *GOLD*
 * E o valor retirado, descrescido do saldo
 ---
@@ -113,3 +113,9 @@ Expected :SILVER
 Actual   :GOLD
 ---
 Ao verificar o código da ContaMagica constatamos que a condicional da mudança de categoria de Silver para Gold estava em 5000 e não 50000. Alterando essa condicional, o teste passou.
+
+## Considerações Finais
+
+Nenhuma outra issue foi encontrada relacionada aos testes unitários ao longo do processo de desenvolvimento.
+
+Também não achamos necessária a adição de novos testes.
