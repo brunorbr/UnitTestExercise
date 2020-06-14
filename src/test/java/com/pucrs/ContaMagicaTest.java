@@ -1,20 +1,19 @@
 package com.pucrs;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
-
-/**
- * Unit test for simple App.
- */
-public class AppTest 
+public class ContaMagicaTest
 {
-    /**
-     * Rigorous Test :-)
-     */
+    private ContaMagica testAccount;
+
+    @BeforeEach
+    public void setUp(){
+        testAccount = new ContaMagica();
+    }
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void CategorySilver_40kDeposit(){
+
     }
 }

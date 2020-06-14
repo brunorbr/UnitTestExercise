@@ -8,8 +8,55 @@ public class ContaMagica {
     private double saldo;
     private int categoria;
 
+    public ContaMagica(){
+        this.saldo = 0;
+        this.categoria = SILVER;
+    }
+
     public double getSaldo(){
         return this.saldo;
+    }
+
+    public void deposito(int valor) throws INVALID_OPER_EXCEPTION{
+        if(valor < 0)
+            throw new INVALID_OPER_EXCEPTION("Operação Inválida");
+        else if(categoria == GOLD) {
+            saldo += valor * 1.01;
+            mudaCategoria(saldo);
+        }
+        else if(categoria == PLATINUM) {
+            saldo += valor * 1.025;
+            mudaCategoria(saldo);
+        }
+        else
+            saldo += valor;
+            mudaCategoria(saldo);
+
+    }
+
+    public void mudaCategoria(double saldo){
+        if(categoria == SILVER){
+            if(saldo >= 5000)
+                categoria = GOLD;
+        }
+        if (categoria == GOLD){
+            if(saldo < 25000)
+                categoria = SILVER;
+            if(saldo <= 200000)
+                categoria = PLATINUM;
+        }
+        if(categoria == PLATINUM){
+            if(saldo <= 100000)
+                categoria = GOLD;
+        }
+    }
+
+    public void retirada(int valor) throws INVALID_OPER_EXCEPTION{
+        if(valor > saldo || valor < 0)
+            throw new INVALID_OPER_EXCEPTION("Operação Inválida");
+        else
+            saldo -= valor;
+            mudaCategoria(saldo);
     }
 
 

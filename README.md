@@ -74,3 +74,52 @@ Os testes serão realizados considerando as alterações entre categorias e os a
 * Então a categoria deve ser alterada para *SILVER*
 * E o valor retirado, descrescido do saldo
 ---
+* Dado que o cliente tem categoria *GOLD*
+* Quando o valor depositado for 130000
+* Então a categoria deve ser mantida a mesma
+* E o valor depósitado recebe acréscimo de 1%
+
+---
+
+* Dado que o cliente tem categoria *GOLD*
+* Quando o valor depositado for 260000
+* Então a categoria deve ser alterada para *PLATINUM*
+* E o valor depósitado recebe acréscimo de 1%
+
+---
+* Dado que o cliente tem categoria *PLATINUM*
+* E o saldo de 300000
+* Quando o cliente retirar for 30000
+* Então a categoria atual deve ser mantida
+* E o valor retirado, descrescido do saldo
+---
+* Dado que o cliente tem categoria *PLATINUM*
+* E o saldo de 280000
+* Quando o cliente retirar 190000
+* Então a categoria deve ser alterada para *GOLD*
+* E o valor retirado, descrescido do saldo
+---
+* Dado que o cliente tem categoria *PLATINUM*
+* E o saldo de 280000
+* Quando o cliente retirar 27999
+* Então a categoria deve ser alterada para *GOLD*
+* E o valor retirado, descrescido do saldo
+---
+* Dado que o cliente tem categoria *PLATINUM*
+* Quando o valor depositado for 100000
+* Então o valor depósitado recebe acréscimo de 2.5%
+
+---
+* Dado que o cliente tem categoria *GOLD*
+* E o saldo de 60000
+* Quando o cliente retirar for 30000
+* Então a categoria atual deve ser mantida
+* E o valor retirado, descrescido do saldo
+---
+* Dado que o cliente tem categoria *GOLD*
+* E o saldo de 60000
+* Quando o cliente retirar 40000
+* Então a categoria deve ser alterada para *SILVER*
+* E o valor retirado, descrescido do saldo
+
+## Defeitos encontrados durante o desenvolvimento
